@@ -8,13 +8,8 @@ export default class Knight extends Piece {
     }
 
     getAvailableMoves(board) {
-        let location= board.findPiece(this);
-        let possibleMoves=[]
-        for (let i=0; i<8; i++) {
-            possibleMoves.push(Square.at(location.row, i))
-            possibleMoves.push(Square.at(i, location.col))
-        }
-        return possibleMoves
+        
+        return new Array(0)
     
     }
 }

@@ -1,3 +1,5 @@
+import Player from '../player';
+import Square from '../square';
 import Piece from './piece';
 
 export default class Bishop extends Piece {
@@ -6,6 +8,16 @@ export default class Bishop extends Piece {
     }
 
     getAvailableMoves(board) {
-        return new Array(0);
+        let location=board.findPiece(this);
+        let possibleMoves=[]
+        for (let i=1; i<8; i++){
+            possibleMoves.push(Square.at(location.row+i, location.col+i))
+            possibleMoves.push(Square.at(location.row-i, location.col-i))
+            possibleMoves.push(Square.at(location.row+i, location.col-i))
+            possibleMoves.push(Square.at(location.row-i, location.col+i))
+        }
+        possibleMoves=possibleMoves.filter(item=> item.row>=0 && item.row <8 && item.col >=0 && item.col<8)
+
+        return possibleMoves
     }
 }
