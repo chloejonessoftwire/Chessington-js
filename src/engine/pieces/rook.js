@@ -14,6 +14,9 @@ export default class Rook extends Piece {
             possibleMoves.push(Square.at(location.row, i))
             possibleMoves.push(Square.at(i, location.col))
         }
+        possibleMoves=possibleMoves.filter(item=> item.row>=0 && item.row <8 && item.col >=0 && item.col<8 && item!=location )
+        possibleMoves=possibleMoves.filter(item=> (item.row!= location.row || item.col!=location.col)==true )
+
         return possibleMoves
     
     }

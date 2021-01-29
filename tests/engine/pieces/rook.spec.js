@@ -15,7 +15,7 @@ describe('Rook', () => {
         board.setPiece(Square.at(0, 0), rook);
     
         const moves = rook.getAvailableMoves(board);
-        
+        moves.should.have.length(14)
         moves.should.deep.include(Square.at(4, 0));
     });
 
